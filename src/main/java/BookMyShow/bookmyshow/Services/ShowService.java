@@ -1,9 +1,6 @@
 package BookMyShow.bookmyshow.Services;
 
-import BookMyShow.bookmyshow.Models.Movie;
-import BookMyShow.bookmyshow.Models.Show;
-import BookMyShow.bookmyshow.Models.Theater;
-import BookMyShow.bookmyshow.Models.TheaterSeat;
+import BookMyShow.bookmyshow.Models.*;
 import BookMyShow.bookmyshow.Repositories.MovieRepository;
 import BookMyShow.bookmyshow.Repositories.ShowRepository;
 import BookMyShow.bookmyshow.Repositories.ShowSeatRepository;
@@ -47,18 +44,18 @@ public class ShowService {
         //Associate the corresponding show Seats along with it
         List<TheaterSeat> theaterSeatList = theater.getTheaterSeatList();
 
-//        List<ShowSeat> showSeatList = new ArrayList<>();
-//
-//        for (TheaterSeat theaterSeat : theaterSeatList) {
-//
-//            ShowSeat showSeat = ShowSeat.builder().seatNo(theaterSeat.getSeatNo())
-//                    .seatType(theaterSeat.getSeatType())
-//                    .isBooked(Boolean.FALSE)
-//                    .isFoodAttached(Boolean.FALSE)
-//                    .show(show)
-//                    .build();
-//            showSeatList.add(showSeat);
-//        }
+        List<ShowSeat> showSeatList = new ArrayList<>();
+
+        for (TheaterSeat theaterSeat : theaterSeatList) {
+
+            ShowSeat showSeat = ShowSeat.builder().seatNo(theaterSeat.getSeatNo())
+                    .seatType(theaterSeat.getSeatType())
+                    .isBooked(Boolean.FALSE)
+                    .isFoodAttached(Boolean.FALSE)
+                    .show(show)
+                    .build();
+            showSeatList.add(showSeat);
+        }
 
 //        showSeatRepository.saveAll(showSeatList);
         return "The show has been saved to the DB with showId " + show.getShowId();

@@ -10,6 +10,7 @@ import org.hibernate.annotations.Generated;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="shows")
@@ -22,7 +23,7 @@ public class Show{
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Integer showId;
     private LocalDate showDate;
     private LocalTime showTime;
@@ -36,7 +37,7 @@ public class Show{
     @ManyToOne
     private Theater theater;
 
-//    @OneToMany(mappedBy = "show",cascade = CascadeType.ALL)
-//    private  List<ShowSeat> showSeatList = new ArrayList<>();
+    @OneToMany(mappedBy = "show",cascade = CascadeType.ALL)
+    private List<ShowSeat> showSeatList = new ArrayList<>();
 
 }

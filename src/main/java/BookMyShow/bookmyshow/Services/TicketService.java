@@ -1,4 +1,6 @@
 package BookMyShow.bookmyshow.Services;
+
+import BookMyShow.bookmyshow.Enums.SeatType;
 import BookMyShow.bookmyshow.Models.Show;
 import BookMyShow.bookmyshow.Models.ShowSeat;
 import BookMyShow.bookmyshow.Models.Ticket;
@@ -27,7 +29,7 @@ public class TicketService {
     private UserRepository userRepository;
 
     @Autowired
-    private TicketRepository ticketRepository;
+    private TicketRepository  ticketRepository;
 
     public String bookTicket(BookTicketRequest bookTicketRequest){
 
@@ -47,7 +49,7 @@ public class TicketService {
             if(bookTicketRequest.getRequestedSeats().contains(seatNo)) {
                 showSeat.setIsBooked(Boolean.TRUE);
 
-                if(showSeat.getSeatType().equals(SeatType.CLASSIC))
+                if(showSeat.getSeatType().equals(SeatType.Classic))
                     totalAmount = totalAmount + 100;
                 else
                     totalAmount = totalAmount+150;
@@ -66,7 +68,7 @@ public class TicketService {
                 .build();
 
 
-        showSeatRepository.saveAll(showSeatList);
+//        showSeatRepository.saveAll(showSeatList);
         ticket = ticketRepository.save(ticket);
         //5. save the ticket into DB and return Ticket Entity (Ticket Response)
         return ticket.getTicketId();
