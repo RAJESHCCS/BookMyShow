@@ -55,7 +55,7 @@ public class TicketService {
                     totalAmount = totalAmount+150;
             }
         }
-
+        showSeatRepository.saveAll(showSeatList);
         //4. Create the Ticket Entity and set the attributes
         Ticket ticket = Ticket.builder().showDate(show.getShowDate())
                 .showTime(show.getShowTime())
@@ -68,7 +68,7 @@ public class TicketService {
                 .build();
 
 
-//        showSeatRepository.saveAll(showSeatList);
+
         ticket = ticketRepository.save(ticket);
         //5. save the ticket into DB and return Ticket Entity (Ticket Response)
         return ticket.getTicketId();
