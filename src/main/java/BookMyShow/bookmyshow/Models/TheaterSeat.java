@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 public class TheaterSeat {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer theaterId;
 
     private String seatNo;

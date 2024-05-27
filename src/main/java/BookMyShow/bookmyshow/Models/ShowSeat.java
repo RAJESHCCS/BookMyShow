@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 public class ShowSeat {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer showSeatId;
     private String seatNo;
     @Enumerated(value = EnumType.STRING)
